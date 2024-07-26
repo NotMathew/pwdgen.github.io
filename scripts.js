@@ -37,12 +37,14 @@ async function generatePasswords() {
         const actionCell = row.insertCell(2);
         numberCell.textContent = i + 1;
         passwordCell.textContent = password;
-        actionCell.innerHTML = `<button class="copy-btn" data-password="${password}" onclick="copyToClipboard(this)">Copy</button>`;
+
+        // Use data-password attribute to store the password
+        actionCell.innerHTML = `<button class="copy-btn" data-password="${encodeURIComponent(password)}">Copy</button>`;
     }
 }
 
 async function copyToClipboard(button) {
-    const text = button.getAttribute('data-password');
+    const text = decodeURIComponent(button.getAttribute('data-password'));
     try {
         await navigator.clipboard.writeText(text);
         alert('Password copied to clipboard');
@@ -83,11 +85,7 @@ function updateCharacterSet() {
     document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             const characters = getCharacterSet();
-            if (!characters) {
-                document.getElementById('generateBtn').disabled = true;
-            } else {
-                document.getElementById('generateBtn').disabled = false;
-            }
+            document.getElementById('generateBtn').disabled = !characters;
         });
     });
 }
@@ -95,3 +93,10 @@ function updateCharacterSet() {
 updateRangeValue('passwordLength', 'passwordLengthValue', 'manualPasswordLength');
 updateRangeValue('numPasswords', 'numPasswordsValue', 'manualNumPasswords');
 updateCharacterSet();
+
+// Attach event listener to copy buttons
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('copy-btn')) {
+        copyToClipboard(event.target);
+    }
+});
