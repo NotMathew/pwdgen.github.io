@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slim Centered Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Password Generator</h1>
+        
+        <div class="input-group">
+            <label for="passwordLength">Password Length: <span id="passwordLengthValue">12</span></label>
+            <input type="range" id="passwordLength" min="4" max="32" value="12">
+        </div>
+        
+        <div class="input-group">
+            <label for="manualPasswordLength">Manual Password Length: </label>
+            <input type="number" id="manualPasswordLength" min="4" max="32" value="12">
+        </div>
+
+        <div class="input-group">
+            <label for="numPasswords">Number of Passwords: <span id="numPasswordsValue">5</span></label>
+            <input type="range" id="numPasswords" min="1" max="10" value="5">
+        </div>
+
+        <div class="input-group">
+            <label for="manualNumPasswords">Manual Number of Passwords: </label>
+            <input type="number" id="manualNumPasswords" min="1" max="10" value="5">
+        </div>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-container">
+                <input type="checkbox" id="lowercase" checked>
+                <label for="lowercase">Lowercase</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="uppercase" checked>
+                <label for="uppercase">Uppercase</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="digits" checked>
+                <label for="digits">Digits</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="special" checked>
+                <label for="special">Special</label>
+            </div>
+        </div>
+        
+        <button id="generateBtn">Generate Passwords</button>
+        
+        <div class="table-container">
+            <table id="passwordTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Password</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
