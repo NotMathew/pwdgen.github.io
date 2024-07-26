@@ -78,5 +78,20 @@ document.getElementById('manualNumPasswords').addEventListener('input', (e) => {
     }
 });
 
+function updateCharacterSet() {
+    // Update character set when any checkbox changes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const characters = getCharacterSet();
+            if (!characters) {
+                document.getElementById('generateBtn').disabled = true;
+            } else {
+                document.getElementById('generateBtn').disabled = false;
+            }
+        });
+    });
+}
+
 updateRangeValue('passwordLength', 'passwordLengthValue', 'manualPasswordLength');
 updateRangeValue('numPasswords', 'numPasswordsValue', 'manualNumPasswords');
+updateCharacterSet();
