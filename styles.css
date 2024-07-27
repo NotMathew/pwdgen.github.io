@@ -104,15 +104,11 @@ button:hover {
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
-.table-container {
-    max-height: 300px; /* Adjust this height as needed */
-    overflow-y: auto;
-    margin-top: 1rem;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 1rem;
+    word-wrap: break-word;
     table-layout: fixed;
 }
 
@@ -127,6 +123,16 @@ th {
     background-color: #F3F4F6;
     font-weight: 600;
     color: #4B5563;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 6%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 15%;
 }
 
 .copy-btn {
