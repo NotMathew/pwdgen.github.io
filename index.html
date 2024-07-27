@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
+    <title>Slim Centered Password Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
         <h1>Password Generator</h1>
         
         <div class="input-group">
-            <label for="passwordLength">Password Length: <span id="passwordLengthValue">12</span></label>
-            <input type="range" id="passwordLength" min="4" max="32" value="12">
+            <label for="passwordLength">Password Length: <span id="passwordLengthValue">32</span></label>
+            <input type="range" id="passwordLength" min="4" max="100" value="32">
         </div>
         
         <div class="input-group">
             <label for="manualPasswordLength">Manual Password Length: </label>
-            <input type="number" id="manualPasswordLength" min="4" max="32" value="12">
+            <input type="number" id="manualPasswordLength" min="4" max="100" value="32">
         </div>
 
         <div class="input-group">
@@ -65,7 +65,6 @@
             </table>
         </div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>
